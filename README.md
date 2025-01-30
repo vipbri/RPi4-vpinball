@@ -118,9 +118,84 @@ In vi you would type in "872G" to get to line 872. Then "dd" to delete each line
 
 Save the file.
 
+Now you need your table (the .vpx file) and your roms (something_something.zip).
+The tables go into /userdata/roms/vpinball/<table name>
 
+```
+mkdir /userdata/roms/vpinball
+mkdir /userdata/roms/vpinball/<table name>
+```
 
+So you would scp the .vpx to /userdata for example, similar to how you did it for the VPin*.tar earlier.
+Then
 
+```
+mv table.vpx /userdata/roms/vpinball/<table name>
+```
 
+An example with a table called fake.vpx
 
+```
+scp fake.vpx root@batocera:/userdata
+Then login to batocera with root
+cd /userdata
+mkdir /userdata/roms/vpinball
+mkdir /userdata/roms/vpinball/fake
+mv fake.vpx /userdata/roms/vpinball/fake
+```
+
+Now "ls /userdata/roms/vpinball/fake" should show you the file fake.vpx.  If not, go back and do it again, you made an error.
+
+It's time to reboot. Once you reboot you should see an option for Visual Pinball. And inside it should contain the "fake" table you set up.
+
+Batocera says the roms should be in a directory /userdata/roms/vpinball/<table name>/roms.  So log back in and create the directory and scp and copy the rom files into that directory.
+
+Also, "mkdir /userdata/vpinball/plugins" as it will complain otherwise.
+
+Once more, just in case
+
+```
+batocera-save-overlay
+```
+
+Again reboot your system.
+Go into "Visual Pinball", select your table and open it.
+
+It'll open and begin running. It might freeze the first time, this is normal. Quit the game and then go back and it will work. This is a known "problem" with Visual Pinball, from now on the table will start normally. I have to do this for all tables the first run.
+
+So let's talk performance. There isn't any. It's horrible. You can't follow the ball at all. Very few frames per second.  I don't recommend it at all.  So, no, you didn't do anything wrong. RPi4 isn't really meant for this purpose.
+
+You can try the following settings plus 720p resolution in batocera and perhaps it'll be good enough? Find and edit the following section to look like this.
+
+```
+MaxFramerate =
+MaxPrerenderedFrames =
+FXAA = 0
+Sharpen =
+ScaleFXDMD =
+DisableAO = 1
+DynamicAO =
+SSRefl = 0
+PFReflection = 0
+MaxTexDimension =
+AAFactor =
+MSAASamples =
+DisableDWM = 1
+UseNVidiaAPI =
+HDRDisableToneMapper =
+HDRGlobalExposure =
+ForceBloomOff = 1
+ForceMotionBlurOff = 1
+ForceAnisotropicFiltering = 0
+CompressTextures =
+SoftwareVertexProcessing =
+```
+
+There's a tiny bit of input lag and you can almost follow the ball.  Anyone got any more suggestions?
+
+I wonder what a RPi5 would do but I don't have one to test with.
+
+However, that's how to get Visual Pinball on your RPi4 if you feel so adventurous.
+
+Have fun
 
