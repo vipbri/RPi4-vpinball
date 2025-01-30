@@ -191,11 +191,10 @@ CompressTextures =
 SoftwareVertexProcessing =
 ```
 
-There's a tiny bit of input lag and you can almost follow the ball.  Anyone got any more suggestions?
+It's almost playable. Sort of. There's a tiny bit of input lag and you can almost follow the ball.  Anyone got any more suggestions?
 
 I wonder what a RPi5 would do but I don't have one to test with.
 
 However, that's how to get Visual Pinball on your RPi4 if you feel so adventurous.
 
 Have fun
-
