@@ -148,7 +148,7 @@ Now "ls /userdata/roms/vpinball/fake" should show you the file fake.vpx.  If not
 
 It's time to reboot. Once you reboot you should see an option for Visual Pinball. And inside it should contain the "fake" table you set up.
 
-Batocera says the roms should be in a directory /userdata/roms/vpinball/<table name>/roms.  So log back in and create the directory and scp and copy the rom files into that directory.
+Batocera says the roms should be in a directory /userdata/roms/vpinball/table_name/roms.  So log back in and create the directory and scp and copy the rom files into that directory.
 
 Also, "mkdir /userdata/vpinball/plugins" as it will complain otherwise.
 
